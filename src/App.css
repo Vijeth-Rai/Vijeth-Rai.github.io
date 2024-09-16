@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Dark background color */
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #16171a 100%); /* Dark gradient background */
+}
+
+.background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.classy-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.classy-nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.classy-nav li {
+  margin: 0 10px;
+}
+
+.classy-nav button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.classy-nav li.active button,
+.classy-nav button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .classy-nav {
+    bottom: 20px;
+    top: auto;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .classy-nav ul {
+    justify-content: space-around;
+  }
+
+  .classy-nav button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+.image-container {
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+
+.initial-image-container:hover .initial-profile-image {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* Increased glow effect */
+}
+
+/* Add this for smooth transitions between sections */
+.app > div:not(.image-container) {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Add this to ensure content is above the canvas */
+.image-container, .classy-nav, .app > div:not(.image-container) {
+  position: relative;
+  z-index: 2;
+}
+
+.initial-image-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Change from 100vh to auto */
+  position: relative;
+  padding: 20px; /* Add some padding */
+}
+
+.initial-profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.initial-image-container:hover .initial-profile-image {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 40%; /* Center vertically but a little down */
+  transform: translateY(50%); /* Adjust for centering */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  z-index: 2;
+  width: max-content; /* Ensure the overlay width fits its content */
+}
+
+.initial-image-container .initial-profile-image:hover ~ .image-overlay,
+.initial-image-container .image-overlay:hover {
+  opacity: 1;
+}
+
