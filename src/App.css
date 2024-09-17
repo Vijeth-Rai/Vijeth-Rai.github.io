@@ -9,9 +9,10 @@ body, html {
 }
 
 .app {
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   background: linear-gradient(135deg, #000000 0%, #16171a 100%); /* Dark gradient background */
+  overflow: hidden;
 }
 
 .background-canvas {

@@ -1,40 +1,96 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Projects.css';
 import projectImage1 from './Project-images/image1.avif';
 import projectImage2 from './Project-images/image2.avif';
 import projectImage3 from './Project-images/image3.avif';
+import projectImage4 from './Project-images/image4.avif';
+import projectImage5 from './Project-images/image5.avif';
 
 const Projects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sliding, setSliding] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 50000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const projects = [
     {
-      title: "Master's Dissertation: When Words Are Not Enough - A Multimodal Sarcasm Detection AI",
-      description: "The future of AI shows promising possibilities in the field of communication, with a variety of applications in therapy, retail, customer service, and more. Despite the significant progress in AI, there is a lack of research that explores the extent to which AI can be used to distinguish passive aggression or sarcasm using multimodal inputs. This study investigates the potential of AI in recognizing subtle forms of human expressions in conversations. This paper introduces an innovative framework that combines early fusion and late fusion with ensemble methods. The study demonstrates a 1.2% improvement in performance over existing research in this domain and an error reduction rate of 56.5%.",
-      image: projectImage1
+      title: "Multimodal Sarcasm Detection AI",
+      description: "Revolutionizing communication with AI that understands subtle human expressions.",
+      image: projectImage1,
+      ctaText: "Learn More"
     },
     {
       title: "Microsoft Malware Detection",
-      description: "Malware, or malicious software, is any program intended to disrupt, damage, or gain unauthorized access to computer systems. Traditional antivirus methods struggle to keep pace with the rapid evolution of malware techniques. However, the rise of machine learning (ML) offers a beacon of hope, providing new tools to enhance our cybersecurity arsenal.",
-      image: projectImage2
+      description: "Enhancing cybersecurity with machine learning to combat evolving malware threats.",
+      image: projectImage2,
+      ctaText: "Explore Project"
+    },
+    {
+      title: "AI-Powered Gaming Experience",
+      description: "Creating immersive gaming worlds with advanced AI technology.",
+      image: projectImage3,
+      ctaText: "Play Demo"
+    },
+    {
+      title: "Blockchain for Supply Chain",
+      description: "Implementing transparent and secure supply chain management using blockchain.",
+      image: projectImage4,
+      ctaText: "View Case Study"
+    },
+    {
+      title: "Quantum Computing Research",
+      description: "Pushing the boundaries of computation with quantum algorithms.",
+      image: projectImage5,
+      ctaText: "Read Paper"
     },
   ];
 
+  const nextSlide = () => {
+    setSliding('right');
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+      setSliding(false);
+    }, 500);
+  };
+
+  const prevSlide = () => {
+    setSliding('left');
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+      setSliding(false);
+    }, 500);
+  };
+
   return (
     <div className="projects-page">
-      <header className="projects-header">
-        <h1>My Projects</h1>
-        <p>Welcome to my portfolio of projects. Here you'll find a selection of my work in AI, cybersecurity, and gaming technology.</p>
-      </header>
-      {projects.map((project, index) => (
-        <section key={index} className={`project-section ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-          <div className="project-content">
-            <div className="project-text">
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
+      <div className="slider-container">
+        <div className={`project-slider ${sliding ? `sliding-${sliding}` : ''}`}>
+          <section 
+            className="project-section active"
+            style={{ backgroundImage: `url(${projects[currentIndex].image})` }}
+          >
+            <div className="project-content">
+              <h2 className="project-title">{projects[currentIndex].title}</h2>
+              <p className="project-description">{projects[currentIndex].description}</p>
             </div>
-            <img src={project.image} alt={project.title} className="project-image" />
+            <div className="project-cta">
+              <button className="cta-button">{projects[currentIndex].ctaText}</button>
+            </div>
+          </section>
+          <div className="navigation-area left" onClick={prevSlide}>
+            <div className="nav-indicator"></div>
           </div>
-        </section>
-      ))}
+          <div className="navigation-area right" onClick={nextSlide}>
+            <div className="nav-indicator"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

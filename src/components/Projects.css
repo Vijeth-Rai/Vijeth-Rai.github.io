@@ -1,101 +1,194 @@
 body, html {
   margin: 0;
   padding: 0;
+  font-family: 'Gotham SSm', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden; /* Keeps horizontal overflow hidden */
+  overflow-y: auto;   /* Allows vertical scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.projects-page {
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  scroll-behavior: auto; /* Reset to avoid unintended scroll positioning */
 }
 
-  
-  /* Main projects container with full viewport height and overflow settings */
-  .projects-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    overflow-y: auto; /* Enable vertical scrolling when content exceeds div height */
-    padding: 800px 20px 20px 20px; /* Add top padding */
-    box-sizing: border-box;
-  }
-  
-  /* Project section layout with alternating text and images */
-  .project-section {
-    width: 80%;
-    margin: 40px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allow content to wrap when necessary */
-    box-sizing: border-box;
-  }
-  
-  /* Content inside each project section */
-  .project-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Alternating text and image layout */
-  .project-section.text-left .project-text {
-    order: 1;
-  }
-  
-  .project-section.text-left .project-image {
-    order: 2;
-  }
-  
-  .project-section.text-right .project-text {
-    order: 2;
-    text-align: right;
-  }
-  
-  .project-section.text-right .project-image {
-    order: 1;
-  }
-  
-  /* Constraints on text and images to fit within the layout */
-  .project-text {
-    flex: 1;
-    min-width: 300px; /* Minimum width for readability */
-  }
-  
-  .project-image {
-    max-width: 45%; /* Restrict image width to prevent overflow */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px;
-    object-fit: cover; /* Ensure images fit nicely within their containers */
-  }
-  
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 768px) {
-    .project-section {
-      flex-direction: column;
-    }
-  
-    .project-content {
-      flex-direction: column;
-    }
-  
-    .project-text {
-      text-align: center;
-      order: 1;
-    }
-  
-    .project-image {
-      width: 100%;
-      max-width: 100%; /* Ensure images fit well on smaller screens */
-      order: 2;
-    }
-  
-    .projects-page {
-      padding-top: 60px; /* Adjust top padding for mobile */
-    }
-  }
+.slider-container {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.project-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+.project-section {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Changed from flex-start to center */
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-section.active {
+  opacity: 1;
+  transform: translateZ(0) rotateY(0);
+}
+
+.sliding-left .project-section.active {
+  animation: slideOutLeft 0.5s forwards;
+}
+
+.sliding-right .project-section.active {
+  animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateZ(0) rotateY(0); }
+  to { transform: translateZ(-100px) rotateY(-30deg); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateZ(0) rotateY(0); }
+  to { transform: translateZ(-100px) rotateY(30deg); }
+}
+
+.project-content {
+  text-align: center;
+  max-width: 80%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.project-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.project-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border: none;
+  outline: none;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.navigation-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #000;
+  font-size: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navigation-area {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-area:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation-area.left {
+  left: 0;
+}
+
+.navigation-area.right {
+  right: 0;
+}
+
+.nav-indicator {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.navigation-area:hover .nav-indicator {
+  transform: scale(1);
+}

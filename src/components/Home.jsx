@@ -10,10 +10,8 @@ const Home = () => {
   const fullText = "I'm a Data Scientist and AI Engineer who excels at providing solutions to business problems.";
 
   useEffect(() => {
-    // Set the full text immediately
     setTypedText(fullText);
 
-    // Then start the typing effect
     let i = 0;
     const typingEffect = setInterval(() => {
       if (i < fullText.length) {
@@ -31,6 +29,7 @@ const Home = () => {
     setZoomEffect(true);
     setTimeout(() => {
       setShowProjects(true);
+      window.scrollTo(0, 0); // Ensure the page scrolls to the top when projects are displayed
     }, 1000); // Match this duration with the CSS animation duration
   };
 

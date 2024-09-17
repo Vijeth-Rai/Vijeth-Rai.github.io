@@ -4,6 +4,8 @@ body, html {
   height: 100%;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-x: hidden; /* Keeps horizontal overflow hidden */
+  overflow-y: auto;   /* Allows vertical scrolling */
 }
 
 .home {
@@ -14,7 +16,6 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -137,6 +138,10 @@ h1 {
   transform: translateX(-100%);
 }
 
+.project-cta {
+  margin-bottom: 20px;
+}
+
 .projects-page {
   position: absolute;
   top: 0;
@@ -145,11 +150,12 @@ h1 {
   height: 100%;
   background-color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack projects vertically */
+  overflow-y: auto; /* Enable scrolling within the projects page */
+  justify-content: flex-start; /* Align projects to the top */
   align-items: center;
-  transition: opacity 1s ease-in-out;
   opacity: 0;
-  transition-delay: 1s; /* Add delay to match the zoom-out animation */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .home.zoom-out .content {
@@ -161,11 +167,12 @@ h1 {
     transform: scale(1);
   }
   100% {
-    transform: scale(3); /* Adjust the scale value for a more moderate zoom */
+    transform: scale(3);
     opacity: 0;
   }
 }
 
 .home.zoom-out .projects-page {
   opacity: 1;
+  transform: translateY(0); /* Ensures it starts from the top */
 }
