@@ -62,17 +62,17 @@ const Projects = () => {
       transform = 'translateX(0) scale(1)';
       zIndex = 3;
     } else if (diff === 1 || diff === -4) {
-      transform = 'translateX(50%) scale(0.8) rotateY(-10deg)';
+      transform = 'translateX(50%) scale(0.7) rotateY(-10deg)';
       zIndex = 2;
-      opacity = 0.7;
+      opacity = 0.3;
     } else if (diff === -1 || diff === 4) {
-      transform = 'translateX(-50%) scale(0.8) rotateY(10deg)';
+      transform = 'translateX(-50%) scale(0.7) rotateY(10deg)';
       zIndex = 2;
-      opacity = 0.7;
+      opacity = 0.3;
     } else {
-      transform = `translateX(${diff < 0 ? '-' : ''}100%) scale(0.6) rotateY(${diff < 0 ? '' : '-'}20deg)`;
+      transform = `translateX(${diff < 0 ? '-' : ''}100%) scale(0) rotateY(${diff < 0 ? '' : '-'}20deg)`;
       zIndex = 1;
-      opacity = 0.5;
+      opacity = 0;
     }
 
     return { transform, zIndex, opacity };

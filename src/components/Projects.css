@@ -64,6 +64,10 @@ body, html {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
   border-radius: 10px;
+  max-width: 100%; /* Restrict the maximum width */
+  width: 500px; /* Set a fixed width */
+  max-height: 70vh; /* Restrict the maximum height to 70% of the viewport height */
+  overflow-y: auto; /* Add scrollbar if content exceeds max-height */
 }
 
 .project-section.active {
@@ -143,18 +147,18 @@ body, html {
 .navigation-area {
   position: absolute;
   top: 0;
-  width: 100px;
+  width: 15%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 3; /* Add this line */
+  z-index: 30; /* Add this line */
   /* Remove the transition property from here */
 }
 
 /* Remove this rule entirely
-.navigation-area:hover {
+.navigation-area:hover { 
   background-color: rgba(255, 255, 255, 0.1);
 }
 */
