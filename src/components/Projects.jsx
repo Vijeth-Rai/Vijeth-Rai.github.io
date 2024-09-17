@@ -5,6 +5,7 @@ import projectImage2 from './Project-images/image2.avif';
 import projectImage3 from './Project-images/image3.avif';
 import projectImage4 from './Project-images/image4.avif';
 import projectImage5 from './Project-images/image5.avif';
+import ParticleBackground from './ParticleBackground';
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,6 +52,32 @@ const Projects = () => {
     },
   ];
 
+  const getCardStyle = (index) => {
+    const diff = (index - currentIndex + projects.length) % projects.length;
+    let transform = '';
+    let zIndex = 0;
+    let opacity = 1;
+
+    if (diff === 0) {
+      transform = 'translateX(0) scale(1)';
+      zIndex = 3;
+    } else if (diff === 1 || diff === -4) {
+      transform = 'translateX(50%) scale(0.8) rotateY(-10deg)';
+      zIndex = 2;
+      opacity = 0.7;
+    } else if (diff === -1 || diff === 4) {
+      transform = 'translateX(-50%) scale(0.8) rotateY(10deg)';
+      zIndex = 2;
+      opacity = 0.7;
+    } else {
+      transform = `translateX(${diff < 0 ? '-' : ''}100%) scale(0.6) rotateY(${diff < 0 ? '' : '-'}20deg)`;
+      zIndex = 1;
+      opacity = 0.5;
+    }
+
+    return { transform, zIndex, opacity };
+  };
+
   const nextSlide = () => {
     setSliding('right');
     setTimeout(() => {
@@ -69,20 +96,27 @@ const Projects = () => {
 
   return (
     <div className="projects-page">
+      <ParticleBackground />
       <div className="slider-container">
         <div className={`project-slider ${sliding ? `sliding-${sliding}` : ''}`}>
-          <section 
-            className="project-section active"
-            style={{ backgroundImage: `url(${projects[currentIndex].image})` }}
-          >
-            <div className="project-content">
-              <h2 className="project-title">{projects[currentIndex].title}</h2>
-              <p className="project-description">{projects[currentIndex].description}</p>
-            </div>
-            <div className="project-cta">
-              <button className="cta-button">{projects[currentIndex].ctaText}</button>
-            </div>
-          </section>
+          {projects.map((project, index) => (
+            <section 
+              key={index}
+              className={`project-section ${index === currentIndex ? 'active' : ''}`}
+              style={{
+                backgroundImage: `url(${project.image})`,
+                ...getCardStyle(index)
+              }}
+            >
+              <div className="project-content">
+                <h2 className="project-title">{project.title}</h2>
+                <p className="project-description">{project.description}</p>
+              </div>
+              <div className="project-cta">
+                <button className="cta-button">{project.ctaText}</button>
+              </div>
+            </section>
+          ))}
           <div className="navigation-area left" onClick={prevSlide}>
             <div className="nav-indicator"></div>
           </div>
