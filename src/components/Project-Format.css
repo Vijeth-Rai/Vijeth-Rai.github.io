@@ -15,9 +15,11 @@
 }
 
 .project-display-container {
+    margin-top: 5vh;
     flex: 1;
-    padding: 20px;
+    padding: 5px; /* Further reduced from 10px */
     overflow-y: auto; /* Add scrolling to this container */
+    margin-bottom: 5vh;
 }
 
 .project-display {
@@ -30,36 +32,38 @@
     width: 50%;
     float: left;
     padding-right: 20px;
-    margin-bottom: 20px;
 }
 
 .content-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px; /* Spacing between rows */
     width: 100%;
 }
 
-.content {
-    margin-bottom: 20px;
+container {
+    margin-bottom: 2px; /* Minimal spacing between content elements */
+    padding: 0 !important;
+    
 }
 
 .text-left, .image-left {
-    width: 40%; /* Slightly less than half to account for spacing */
+    width: 45%; /* Slightly less than half to account for spacing */
     float: left;
 }
 
 .text-right, .image-right {
-    width: 40%; /* Slightly less than half to account for spacing */
+    width: 45%; /* Slightly less than half to account for spacing */
     float: right;
 }
 
 .text-full, .image-full {
     width: 100%;
+    max-width: None !important;
     clear: both;
     margin-left: auto;
     margin-right: auto;
     float: none;
+    margin-bottom: 20px;
 }
 
 .image-left img, .image-right img, .image-full img {
@@ -69,18 +73,18 @@
 }
 
 .project-header {
-    margin-top: 10vh; /* Added gap at the top using viewport height */
+    margin-top: 1vh; /* Drastically reduced from 2vh */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
     background-color: rgb(255, 255, 255); /* Light gray background */
-    padding: 20px;
+    padding: 5px; /* Further reduced from 10px */
     border-radius: 8px;
-    margin-bottom: 5vh;
+    box-shadow: none; /* Explicitly remove any box shadow */
 }
 
 .project-title-summary {
+    
     width: 45%;
     order: 1;
     display: flex;
@@ -91,6 +95,7 @@
     color: #000; /* Black text */
     font-size: 1.2em; /* Increase font size for title and summary */
 }
+
 
 .project-title-summary h2 {
     margin: 0;
@@ -104,6 +109,7 @@
     color: rgb(43, 44, 50);
     font-style: normal;
     letter-spacing: 0.7px; /* Add slightly more letter spacing for titles */
+    margin-bottom: 0.1em; /* Minimal space below title */
 }
 
 .project-image {
@@ -114,7 +120,7 @@
 }
 
 .github-button {
-    margin-top: 15px;
+    margin-top: 15px; /* Reduced from 15px */
     padding: 10px 20px;
     background-color: #24292e; /* GitHub's color */
     color: white;
@@ -143,7 +149,7 @@
 @media (max-width: 768px) {
     .project-header {
         flex-direction: column;
-        padding: 15px;
+        padding: 2px; /* Minimal padding for mobile */
     }
 
     .project-image, .project-title-summary {
@@ -153,7 +159,6 @@
     
     .project-image {
         order: 1;
-        margin-bottom: 20px;
     }
 
     .project-title-summary {
@@ -178,7 +183,7 @@
     }
 }
 
-/* Add this new rule to ensure paragraphs are justified and have increased font size */
+/* Add this new rule to reduce space between paragraphs */
 p {
     text-align: justify;
     font-family: 'Work Sans', Arial, sans-serif;
@@ -188,6 +193,8 @@ p {
     font-style: normal;
     font-weight: 500;
     letter-spacing: 1px; /* Increased from 0.5px to 1px */
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 /* Customize scrollbar for webkit browsers */
@@ -215,20 +222,33 @@ p {
 }
 
 /* Add styles for headers in content sections */
-.content h3 {
+container h3 {
     font-family: 'Epilogue', Arial, sans-serif;
     font-weight: 700;
     font-size: 24px;
-    margin-bottom: 10px;
     color: rgb(43, 44, 50);
     text-align: justify;
+    margin-top: 30px;
 }
 
 .text-full h3 {
     text-align: center;
+    margin-top: 30px;
 }
 
 /* Ensure all paragraphs within text-left and text-right are justified */
 .text-left p, .text-right p {
     text-align: justify;
 }
+
+/* Add this rule to ensure no box shadow on any element */
+* {
+    box-shadow: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.project-title-summary h2 {
+  margin-bottom: 15px;
+}
+

@@ -1,0 +1,49 @@
+{
+    "title": "Valorant Enemy Detection",
+    "summary": "Tired of aiming? Sit back and let AI shoot for you",
+    "projectImage": "image3",
+    "contentSections": [
+      
+      [
+        {
+          "type": "text-left",
+          "header": "Project 'Aim'",
+          "text": "This project aims to create a specialized object detection model for the game Valorant, focusing on the real-time identification and tagging of various in-game objects or elements. The goal is to enhance the gaming experience by providing real-time analytics and insights, although it's worth noting that the model's applications are intended solely for educational purposes."
+        },
+        {
+            "type": "text-right",
+            "header": "Ethical Consideration",
+            "text": "To prevent the model from being used maliciously, the dataset and specific model parameters are not publicly disclosed. Additionally, the code is not published to mitigate the risk of misuse for harmful activities within the game environment."
+          }
+        
+      ],
+
+      [
+        {
+          "type": "text-left",
+          "header": "Data Creation",
+          "text": "The data for training the model was collected by recording Valorant gameplay using the FBX Game Recorder. These recordings were saved as .mp4 files, and specific frames were extracted as screenshots using VLC media player.<br><br>The selected images were then annotated using labelImg.py, a commonly used tool for image annotation.<br><br>The annotations were formatted to be compatible with YOLO object detection models."
+        },
+        {
+        "type": "text-right",
+        "header": "Training and Optimization",
+        "text": "Two variants of the YOLO architecture, Yolov8n and Yolov8s, were trained on this custom dataset. The training process aimed to achieve high accuracy and speed in detecting in-game objects.<br><br>To further optimize the model, techniques like Pruning and Quantization were applied to the final model weights. These optimizations substantially increased the frame rate performance, with FPS (Frames Per Second) boosting from a range of 12-19 FPS to 74-80 FPS.<br><br>It is worth noting that the FPS performance is system dependent."
+        }
+      ],
+
+      [
+        {
+          "type": "text-full",
+          "header": "Results & Applications",
+          "text": "The results demonstrate the model's high efficacy and speed, especially after optimization, but it's essential to note that the project serves as an educational exploration of object detection capabilities within a specific game environment."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "text": "https://www.youtube.com/watch?v=j-vc4zn2U1Y&list=TLGGl-IHCQ10T0wxODA5MjAyNA&t=214s"
+        }
+      ]
+
+    ]
+  }

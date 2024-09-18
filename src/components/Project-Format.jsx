@@ -31,37 +31,65 @@ function ProjectDisplay({ title, summary, projectImage, contentSections }) {
 
   const renderContentSection = (section, index) => {
     const { type, text, image, header } = section;
-    const contentImageSrc = image ? getImage(image) : null;
+    
+    const createMarkup = (htmlContent) => {
+      return { __html: htmlContent };
+    };
+
+    const processImageField = (imageField) => {
+      const parts = imageField.split('<br>');
+      const imageName = parts[parts.length - 1].trim();
+      const brCount = parts.length - 1;
+      return { imageName, brCount };
+    };
 
     switch (type) {
       case 'text-left':
       case 'text-right':
         return (
-          <div key={index} className={`content ${type}`}>
+          <div key={index} className={`container ${type}`}>
             {header && <h3>{header}</h3>}
-            <p>{text}</p>
+            <p dangerouslySetInnerHTML={createMarkup(text)} />
           </div>
         );
       case 'image-left':
       case 'image-right':
-        return contentImageSrc ? (
-          <div key={index} className={`content ${type}`}>
-            <img src={contentImageSrc} alt="" onError={(e) => e.target.style.display = 'none'} />
+        const { imageName, brCount } = processImageField(image);
+        const contentImageSrc = getImage(imageName);
+        return (
+          <div key={index} className={`container ${type}`}>
+            {[...Array(brCount)].map((_, i) => <br key={i} />)}
+            {contentImageSrc && (
+              <img 
+                src={contentImageSrc} 
+                alt="" 
+                onError={(e) => e.target.style.display = 'none'} 
+              />
+            )}
           </div>
-        ) : null;
+        );
       case 'text-full':
         return (
-          <div key={index} className={`content ${type}`}>
+          <div key={index} className={`container ${type}`}>
             {header && <h3>{header}</h3>}
-            <p>{text}</p>
+            <p dangerouslySetInnerHTML={createMarkup(text)} />
           </div>
         );
       case 'image-full':
-        return contentImageSrc ? (
-          <div key={index} className={`content ${type}`}>
-            <img src={contentImageSrc} alt="" onError={(e) => e.target.style.display = 'none'} />
+        const { imageName: fullImageName, brCount: fullBrCount } = processImageField(image);
+        const fullContentImageSrc = getImage(fullImageName);
+        return (
+          <div key={index} className={`conatiner ${type}`}>
+            {[...Array(fullBrCount)].map((_, i) => <br key={i} />)}
+            {fullContentImageSrc && (
+              <img 
+                src={fullContentImageSrc} 
+                alt="" 
+                onError={(e) => e.target.style.display = 'none'} 
+              />
+            )}
           </div>
-        ) : null;
+        );
       default:
         return null;
     }

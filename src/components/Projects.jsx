@@ -17,36 +17,36 @@ const Projects = () => {
       title: "Sarcasm Detection on Videos",
       description: "Advanced AI interpreting complex human expressions and humor nuances.",
       image: projectImage1,
-      ctaText: "View More",
+      ctaText: "Read More",
       dataFile: "project1.json"
     },
     {
       title: "Microsoft Malware Detection",
       description: "AI-driven cybersecurity solution for next-gen malware threats.",
       image: projectImage2,
-      ctaText: "Explore Project",
+      ctaText: "Read More",
       dataFile: "project2.json"
     },
     {
       title: "AI-Powered Gaming Experience",
       description: "Leverage cutting-edge AI for unmatched in-game strategies.",
       image: projectImage3,
-      ctaText: "Play Demo",
-      dataFile: "ai-powered-gaming-experience"
+      ctaText: "Read More",
+      dataFile: "project3.json"
     },
     {
       title: "GitHub AI Bot",
       description: "Intelligent automation for labeling issues and discussions.",
       image: projectImage4,
       ctaText: "Read More",
-      dataFile: "github-ai-bot"
+      dataFile: "project4.json"
     },
     {
       title: "Auto Anonymize",
       description: "Sophisticated AI auto-blurs non-owner faces in media.",
       image: projectImage5,
-      ctaText: "Read Paper",
-      dataFile: "auto-anonymize"
+      ctaText: "Read More",
+      dataFile: "project5.json"
     },
   ];
   

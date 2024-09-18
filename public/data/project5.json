@@ -1,0 +1,117 @@
+{
+    "title": "Auto Faceblur",
+    "summary": "Automatically blur faces in your posts, saving you the time and effort of manually blurring the faces of friends who haven't consented to being in your social media posts<br><br>Introducing Auto FaceBlur, the ultimate solution for safeguarding privacy in your social media posts. On average, manually blurring faces in photos can take 15-20 minutes, but with Auto FaceBlur, you can instantly blur faces, ensuring you respect the privacy of friends who haven't consented to being featured in your Instagram or Facebook pictures. Save time and avoid the hassle with our automatic face-blurring tool, making it easier than ever to share your memories while respecting everyone's privacy.",
+    "projectImage": "image5",
+    "contentSections": [
+      
+      [
+        {
+          "type": "text-full",
+          "header": "Approach - Custom Facial Detection & Recognition Model",
+          "text": ""
+        }
+      ],
+      [
+        {
+          "type": "text-left",
+          "header": "Stage 1: Custom Facial Detection Model",
+          "text": "The custom model is trained to detect human faces in any given image with high accuracy. This allows for the model to identify all the existing faces in the picture with low inference time."
+        },
+        {
+          "type": "text-right",
+          "header": "Stage 5: Selective Blurring",
+          "text": "If a picture contains multiple similar-looking faces, the model ensures that the face most likely to belong to the reference image is not blurred. A second threshold is also setup to handle for edge cases, making the model robust."
+        }
+      ],
+      [
+        {
+          "type": "text-left",
+          "header": "Stage 2: Localization",
+          "text": "Once faces are detected, the model stores the localized coordinates of these areas. These coordinates will later be used to recognize known faces."
+        },
+        {
+          "type": "text-right",
+          "header": "Stage 8: Blurring Non-Matching Faces",
+          "text": "Now that the model has recognized faces from reference images, all other faces in the picture will be blurred."
+        }
+      ],
+      [
+        {
+          "type": "text-left",
+          "header": "Stage 3: Custom Facial Recognition",
+          "text": "The model specializes in recognizing faces using one or multiple reference images, each containing a single face. These reference images should belong to individuals who don't mind having their faces unblurred. You can upload these reference images directly as input. Alternatively, you may use the face from the user's profile picture."
+        },
+        {
+          "type": "text-left",
+          "header": "Stage 4: Thresholding for Angled Faces",
+          "text": "A custom threshold, combined with feature invariance achieved through max pooling in our convolutional neural network (CNN), allows the model to recognize faces even if they are at different angles, ensuring accurate identification."
+        }
+        ],
+        [
+        {
+          "type": "text-right",
+          "header": "Stage 9: Output",
+          "text": "The final image, with the appropriate faces blurred, is produced. An example has been provided below for your reference."
+        },
+        {
+          "type": "text-right",
+          "header": "Stage 10: Deployment",
+          "text": "The model requires 2 inputs. First input is the image to be posted. Second input is the faces of people not to be blurred. The model takes around 15 seconds on CPU and 3 seconds on GPU. Please note that the time taken for inference also depends on the number of faces in the images, number of faces to identify, quality of the image, quality of GPU, etc."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Demo - Corpus",
+          "text": ""
+        }
+      ],
+      [
+        {
+          "type": "image-full",
+          "image": "blur1"
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Demo - Input",
+          "text": ""
+        }
+      ],
+      [
+        {
+          "type": "image-full",
+          "image": "blur2"
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Demo - Output",
+          "text": ""
+        }
+      ],
+      [
+        {
+          "type": "image-full",
+          "image": "blur3"
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Project Background",
+          "text": "This project was part of my role as a Data Scientist and Machine Learning Engineer at Pletly. Unfortunately, the link to the repository cannot be shared."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Extending the Model to Video Inputs",
+          "text": "After modifying the code a little, it is possible to apply the above model on video inputs for real time face blurring. This could be useful for streaming platforms and news channels to protect privacy of individuals."
+        }
+      ]
+  
+    ]
+  }
