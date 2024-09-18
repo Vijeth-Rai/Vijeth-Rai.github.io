@@ -1,0 +1,11 @@
+{
+    "title": "Microsoft Malware Detection Using Machine Learning",
+    "summary": "In our digital era, the increasing sophistication of cyber threats, particularly malware, is a significant concern for individuals, companies, and governments. Malware, or malicious software, is any program intended to disrupt, damage, or gain unauthorized access to computer systems. Traditional antivirus methods struggle to keep pace with the rapid evolution of malware techniques. However, the rise of machine learning (ML) offers a beacon of hope, providing new tools to enhance our cybersecurity arsenal. This blog explores the intricate process of using machine learning for malware detection, from raw data extraction to model training and evaluation.",
+    "projectImage": "image2",
+    "contentSections": [
+        {
+        "type": "image-full",
+        "image": "image2"
+        }
+    ]
+}

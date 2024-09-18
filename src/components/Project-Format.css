@@ -1,0 +1,234 @@
+.project-detail-page {
+    background-color: #ffffff;
+    font-family: 'Work Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20.8px;
+    color: rgb(26, 26, 26);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set a fixed height */
+    overflow: hidden; /* Hide overflow on the main container */
+}
+
+.project-display-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Add scrolling to this container */
+}
+
+.project-display {
+    width: 100%;
+    max-width: 1200px; /* Or your preferred maximum width */
+    margin: 0 auto;
+}
+
+.project-image {
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px; /* Spacing between rows */
+    width: 100%;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.text-left, .image-left {
+    width: 40%; /* Slightly less than half to account for spacing */
+    float: left;
+}
+
+.text-right, .image-right {
+    width: 40%; /* Slightly less than half to account for spacing */
+    float: right;
+}
+
+.text-full, .image-full {
+    width: 100%;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+.image-left img, .image-right img, .image-full img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-header {
+    margin-top: 10vh; /* Added gap at the top using viewport height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgb(255, 255, 255); /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 5vh;
+}
+
+.project-title-summary {
+    width: 45%;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000; /* Black text */
+    font-size: 1.2em; /* Increase font size for title and summary */
+}
+
+.project-title-summary h2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: left; /* Keep the title left-aligned */
+    font-family: 'Epilogue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41.6px;
+    color: rgb(43, 44, 50);
+    font-style: normal;
+    letter-spacing: 0.7px; /* Add slightly more letter spacing for titles */
+}
+
+.project-image {
+    width: 50%;
+    order: 2;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.github-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #24292e; /* GitHub's color */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Work Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper sizing */
+}
+
+.github-button:hover {
+    background-color: #464646; /* Slightly lighter on hover */
+    transform: translateY(-3px); /* Move the button slightly upwards */
+    text-decoration: none; /* Ensure no underline on hover */
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* Add more specific styles as needed */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .project-image, .project-title-summary {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .project-image {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .project-title-summary {
+        order: 2;
+    }
+
+    .text-left, .text-right, .image-left, .image-right {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Ensure text remains justified on smaller screens */
+    .project-display, p {
+        text-align: justify;
+    }
+
+    .github-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Add this new rule to ensure paragraphs are justified and have increased font size */
+p {
+    text-align: justify;
+    font-family: 'Work Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20.8px;
+    color: rgb(26, 26, 26);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1px; /* Increased from 0.5px to 1px */
+}
+
+/* Customize scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* Add styles for headers in content sections */
+.content h3 {
+    font-family: 'Epilogue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: rgb(43, 44, 50);
+    text-align: justify;
+}
+
+.text-full h3 {
+    text-align: center;
+}
+
+/* Ensure all paragraphs within text-left and text-right are justified */
+.text-left p, .text-right p {
+    text-align: justify;
+}

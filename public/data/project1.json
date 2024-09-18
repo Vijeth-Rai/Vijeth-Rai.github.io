@@ -1,0 +1,25 @@
+{
+  "title": "Master's Dissertation: When Words Are Not Enough - Multimodal Sarcasm Detection",
+  "summary": "Abstract— The future of AI shows promising possibilities in field of communication, with a variety of applications in therapy, retail, customer service and more. Despite the significant progress in AI, there is a lack of research that explores the extent to which AI can be used to distinguish passive aggression or sarcasm using multimodal inputs. Thus, the aim of this study is to investigate the potential of AI in recognizing subtle forms of human expressions in conversations. This paper introduces an innovative framework that combines early fusion and late fusion with ensemble methods. The study demonstrates a 11.2% improvement in performance over existing research in this domain. Furthermore, two experimental approaches are setup to gain insights on the nature of sarcasm – whether sarcasm is speakerdependent or not.",
+  "projectImage": "image1",
+  "contentSections": [
+    [
+      {
+        "type": "text-left",
+        "header": "Origin",
+        "text": "Sarcasm is a nuanced and multi-layered form of communication that poses significant challenges for automated systems. Current models often struggle with its complexity, since sarcasm frequently depends on more than just the words spoken. It incorporates auditory cues like tone and intonation, even visual signals such as facial expressions. This makes it a genuinely multi-modal issue that demands an interdisciplinary solution, bridging the gap between textual, audio, and visual data."
+      },
+      {
+        "type": "text-right",
+        "header": "Gap in Research:",
+        "text": "Recognizing this gap, my research adopted a multidimensional approach, focusing on integrating data across these three critical domains—text, audio, and visual—to construct a more holistic sarcasm detection model. The breakthrough in my work lies in its ability to synergize these multiple forms of data, creating a more accurate and robust system for understanding the intricacies of sarcasm in human communication."
+      }
+    ],
+    [
+    {
+      "type": "image-full",
+      "image": "diss"
+    }
+  ]
+  ]
+}

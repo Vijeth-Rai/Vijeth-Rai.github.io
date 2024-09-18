@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
 import './App.css';
 import davidImage from './image-2.png';
 import Home from './components/Home';
+import ProjectDetail from './components/ProjectDetail';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
@@ -323,32 +326,32 @@ const App = () => {
   };
 
   const renderContent = () => {
-    switch (activeSection) {
-      case 'home':
-        return <Home />;
-      case 'projects':
-        return <Projects />;
-      case 'skills':
-        return <Skills />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return null;
-    }
+    return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/project/:dataFile" element={<ProjectDetail />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    );
   };
 
   return (
-    <div className="app">
-      <canvas ref={canvasRef} className="background-canvas"></canvas>
-      {activeSection === null ? (
-        <div className="initial-image-container" onClick={handleImageClick}>
-          <img ref={davidImageRef} src={davidImage} alt="David" className="initial-profile-image" />
-          <div className="image-overlay">Click to enter</div>
-        </div>
-      ) : (
-        renderContent()
-      )}
-    </div>
+    <Router>
+      <div className="app">
+        <canvas ref={canvasRef} className="background-canvas"></canvas>
+        {activeSection === null ? (
+          <div className="initial-image-container" onClick={handleImageClick}>
+            <img ref={davidImageRef} src={davidImage} alt="David" className="initial-profile-image" />
+            <div className="image-overlay">Click to enter</div>
+          </div>
+        ) : (
+          renderContent()
+        )}
+      </div>
+    </Router>
   );
 };
 

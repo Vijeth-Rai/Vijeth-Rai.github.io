@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 import projectImage1 from './Project-images/image1.avif';
 import projectImage2 from './Project-images/image2.avif';
@@ -6,6 +6,7 @@ import projectImage3 from './Project-images/image3.avif';
 import projectImage4 from './Project-images/image4.avif';
 import projectImage5 from './Project-images/image5.avif';
 import ParticleBackground from './ParticleBackground';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,30 +18,35 @@ const Projects = () => {
       description: "Advanced AI interpreting complex human expressions and humor nuances.",
       image: projectImage1,
       ctaText: "View More",
+      dataFile: "project1.json"
     },
     {
       title: "Microsoft Malware Detection",
       description: "AI-driven cybersecurity solution for next-gen malware threats.",
       image: projectImage2,
-      ctaText: "Explore Project"
+      ctaText: "Explore Project",
+      dataFile: "project2.json"
     },
     {
       title: "AI-Powered Gaming Experience",
       description: "Leverage cutting-edge AI for unmatched in-game strategies.",
       image: projectImage3,
-      ctaText: "Play Demo"
+      ctaText: "Play Demo",
+      dataFile: "ai-powered-gaming-experience"
     },
     {
       title: "GitHub AI Bot",
       description: "Intelligent automation for labeling issues and discussions.",
       image: projectImage4,
-      ctaText: "Read More"
+      ctaText: "Read More",
+      dataFile: "github-ai-bot"
     },
     {
       title: "Auto Anonymize",
       description: "Sophisticated AI auto-blurs non-owner faces in media.",
       image: projectImage5,
-      ctaText: "Read Paper"
+      ctaText: "Read Paper",
+      dataFile: "auto-anonymize"
     },
   ];
   
@@ -105,12 +111,12 @@ const Projects = () => {
                 <p className="project-description">{project.description}</p>
               </div>
               <div className="project-cta">
-                <button 
-                  className="cta-button" 
-                  onClick={() => window.open(project.link, '_blank')}
+                <Link 
+                  to={`/project/${project.dataFile}`}
+                  className="cta-button"
                 >
                   {project.ctaText}
-                </button>
+                </Link>
               </div>
             </section>
           ))}
