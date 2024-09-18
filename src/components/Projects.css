@@ -20,79 +20,74 @@ body, html {
 }
 
 .slider-container {
-  width: 70%;
-  height: 70%;
+  width: 80%; /* Increased from 50% to 80% */
+  height: 80vh; /* Increased from 100vh to 80vh */
+  position: relative;
+  perspective: 1200px;
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  perspective: 1000px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: translate(-50%, -50%); /* Center the container */
 }
 
 .project-slider {
-  width: 100%;
+  width: 100%; /* Increased from 50% to 80% */
   height: 100%;
-  position: relative;
+  position: absolute;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-out;
+  transition: transform 1s;
 }
 
 .project-section {
   position: absolute;
-  width: 60%;
+  width: 50%;
   height: 100%;
-  left: 20%;
-  top: 0;
+  left: 25%;
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 50%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s ease;
-  z-index: 1; /* Add this line */
-  pointer-events: none; /* Add this line */
+  transition: all 1s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .project-section {
+    height: 50%;
+    top: 25%;
+  }
 }
 
 .project-content {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  border-radius: 10px;
-  max-width: 100%; /* Restrict the maximum width */
-  width: 500px; /* Set a fixed width */
-  max-height: 70vh; /* Restrict the maximum height to 70% of the viewport height */
-  overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transform: translateX(-25%); /* Offset the center of the arc towards left */
 }
 
-.project-section.active {
-  opacity: 1;
-  transform: translateZ(0) rotateY(0);
-  z-index: 2; /* Add this line */
-  pointer-events: auto; /* Add this line */
+.project-title {
+  padding-left: 25%;
 }
 
-.sliding-left .project-section.active {
-  animation: slideOutLeft 0.5s forwards;
-}
-
-.sliding-right .project-section.active {
-  animation: slideOutRight 0.5s forwards;
-}
-
-@keyframes slideOutLeft {
-  from { transform: translateZ(0) rotateY(0); }
-  to { transform: translateZ(-100px) rotateY(-30deg); }
-}
-
-@keyframes slideOutRight {
-  from { transform: translateZ(0) rotateY(0); }
-  to { transform: translateZ(-100px) rotateY(30deg); }
+.project-description{
+  padding-left: 25%;
 }
 
 .project-cta {
@@ -102,8 +97,8 @@ body, html {
 
 .cta-button {
   background-color: #1f1f1f;
+  top:5px;
   color: #fff;
-  margin-top: 20px;
   padding: 12px 30px;
   border-radius: 30px;
   font-size: 14px;
@@ -113,11 +108,14 @@ body, html {
   transition: background-color 0.3s, transform 0.3s;
   border: none;
   outline: none;
+  margin: 0 auto;
+  display: block;
+  transform: translateX(-50%) translateY(5px); /* Changed from -50% to -25% */
 }
 
 .cta-button:hover {
   background-color: #303030;
-  transform: translateY(-2px);
+  transform: translateX(-50%) translateY(-5px); /* Keep the X translation and only move up */
 }
 
 .navigation-buttons {
@@ -153,7 +151,8 @@ body, html {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 30; /* Add this line */
+  z-index: 3; /* Increase this value */
+  pointer-events: auto; /* Add this line */
   /* Remove the transition property from here */
 }
 
@@ -179,8 +178,12 @@ body, html {
 
 .navigation-area.left {
   left: 0;
+  width: 25%;
+  z-index: 3;
 }
 
 .navigation-area.right {
   right: 0;
+  width: 25%;
+  z-index: 3;
 }

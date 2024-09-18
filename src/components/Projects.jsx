@@ -11,47 +11,39 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliding, setSliding] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 50000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const projects = [
     {
-      title: "Multimodal Sarcasm Detection AI",
-      description: "Revolutionizing communication with AI that understands subtle human expressions.",
+      title: "Sarcasm Detection on Videos",
+      description: "Advanced AI interpreting complex human expressions and humor nuances.",
       image: projectImage1,
-      ctaText: "Learn More"
+      ctaText: "View More",
     },
     {
       title: "Microsoft Malware Detection",
-      description: "Enhancing cybersecurity with machine learning to combat evolving malware threats.",
+      description: "AI-driven cybersecurity solution for next-gen malware threats.",
       image: projectImage2,
       ctaText: "Explore Project"
     },
     {
       title: "AI-Powered Gaming Experience",
-      description: "Creating immersive gaming worlds with advanced AI technology.",
+      description: "Leverage cutting-edge AI for unmatched in-game strategies.",
       image: projectImage3,
       ctaText: "Play Demo"
     },
     {
-      title: "Blockchain for Supply Chain",
-      description: "Implementing transparent and secure supply chain management using blockchain.",
+      title: "GitHub AI Bot",
+      description: "Intelligent automation for labeling issues and discussions.",
       image: projectImage4,
-      ctaText: "View Case Study"
+      ctaText: "Read More"
     },
     {
-      title: "Quantum Computing Research",
-      description: "Pushing the boundaries of computation with quantum algorithms.",
+      title: "Auto Anonymize",
+      description: "Sophisticated AI auto-blurs non-owner faces in media.",
       image: projectImage5,
       ctaText: "Read Paper"
     },
   ];
-
+  
   const getCardStyle = (index) => {
     const diff = (index - currentIndex + projects.length) % projects.length;
     let transform = '';
@@ -62,11 +54,11 @@ const Projects = () => {
       transform = 'translateX(0) scale(1)';
       zIndex = 3;
     } else if (diff === 1 || diff === -4) {
-      transform = 'translateX(50%) scale(0.7) rotateY(-10deg)';
+      transform = 'translateX(50%) scale(0.5) rotateY(-100deg)';
       zIndex = 2;
       opacity = 0.3;
     } else if (diff === -1 || diff === 4) {
-      transform = 'translateX(-50%) scale(0.7) rotateY(10deg)';
+      transform = 'translateX(-50%) scale(0.5) rotateY(100deg)';
       zIndex = 2;
       opacity = 0.3;
     } else {
@@ -113,16 +105,21 @@ const Projects = () => {
                 <p className="project-description">{project.description}</p>
               </div>
               <div className="project-cta">
-                <button className="cta-button">{project.ctaText}</button>
+                <button 
+                  className="cta-button" 
+                  onClick={() => window.open(project.link, '_blank')}
+                >
+                  {project.ctaText}
+                </button>
               </div>
             </section>
           ))}
-          <div className="navigation-area left" onClick={prevSlide}>
-            <div className="nav-indicator"></div>
-          </div>
-          <div className="navigation-area right" onClick={nextSlide}>
-            <div className="nav-indicator"></div>
-          </div>
+        </div>
+        <div className="navigation-area left" onClick={prevSlide}>
+          <div className="nav-indicator"></div>
+        </div>
+        <div className="navigation-area right" onClick={nextSlide}>
+          <div className="nav-indicator"></div>
         </div>
       </div>
     </div>
