@@ -7,7 +7,7 @@ const Home = () => {
   const [typedText, setTypedText] = useState('');
   const [showProjects, setShowProjects] = useState(false);
   const [zoomEffect, setZoomEffect] = useState(false);
-  const fullText = "I'm a Data Scientist and AI Engineer who excels at providing solutions to business problems.";
+  const fullText = "A Data Scientist and AI Engineer who excels at providing solutions to business problems.";
 
   useEffect(() => {
     setTypedText(fullText);
@@ -37,12 +37,12 @@ const Home = () => {
     <div className={`home ${zoomEffect ? 'zoom-out' : ''}`}>
       {!showProjects ? (
         <div className="content">
-          <img src={profilePic} alt="Your Name" className="profile-pic" />
-          <h1>Welcome to My Portfolio</h1>
+          <img src={profilePic} alt="Vijeth Rai" className="profile-pic" />
+          <h1>Hi, I'm Vijeth</h1>
           <p className="typed-text">{typedText}</p>
           <div className="cta-buttons">
             <button className="btn primary" onClick={handleViewProjects}>View Projects</button>
-            <button className="btn secondary">Contact Me</button>
+            <button className="btn secondary">My Resume</button>
           </div>
           <div className="social-links">
             <a href="https://github.com/Vijeth-Rai" target="_blank" rel="noopener noreferrer">GitHub</a>
