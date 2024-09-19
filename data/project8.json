@@ -1,0 +1,22 @@
+{
+  "title": "RAG with Infinite Recall",
+  "summary": "RAG with Infinite Recall is a cutting-edge conversational AI system that integrates Retrieval-Augmented Generation (RAG) with an extensive memory mechanism, powered by PostgreSQL and ChromaDB. This system allows the AI to recall and utilize previous interactions, PDFs, and MongoDB data to generate more accurate and context-aware responses. The AI operates locally, ensuring privacy and control over your data.",
+  "projectImage": "rag1.png",
+  "githubLink": "https://github.com/Vijeth-Rai/RAG-with-Infinite-Recall",
+  "contentSections": [
+    [
+      {
+      "type": "text-full",
+      "header": "Features",
+      "text": "<ul><li><strong>Infinite Memory:</strong> The AI can recall and store an unlimited number of conversations, providing context-aware responses based on past interactions.</li><br><li><strong>PostgreSQL Integration:</strong> Utilizes PostgreSQL to store and retrieve past conversations efficiently.</li><br><li><strong>ChromaDB Vector Database:</strong> Stores conversation embeddings for quick and accurate retrieval during interactions.</li><br><li><strong>RAG System:</strong> Integrates external data sources like PDFs and MongoDB to enhance response generation.</li><br><li><strong>Local Operation:</strong> All processing is done locally, ensuring your data remains private and secure.</li></ul>"
+    }
+    ],
+    [
+      {
+      "type": "text-full",
+      "header": "Usage",
+      "text": "<ul><li><strong>Recall Past Conversations:</strong> Type /recall followed by your prompt to recall and use past interactions.</li><br><li><strong>Forget Last Conversation:</strong> Type /forget to remove the last conversation from memory.</li><br><li><strong>Memorize Specific Prompts:</strong> Type /memorize followed by the prompt and response to store it permanently.</li></ul>"
+    }
+    ]
+  ]
+}

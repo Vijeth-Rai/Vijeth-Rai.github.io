@@ -1,0 +1,38 @@
+{
+    "title": "Github Issue Labeling Bot",
+    "summary": "A GitHub bot to label issues automatically based on title and body against list of defined labels",
+    "projectImage": "image4",
+    "githubLink": "https://github.com/Vijeth-Rai/Issue-Labeling-Bot",
+    "contentSections": [
+      [
+        {
+          "type": "text-full",
+          "header": "About",
+          "text": "Introducing the Issue Labeling Bot, a powerful GitHub app designed to revolutionize issue management in your repositories. By leveraging advanced natural language processing (NLP) techniques, this bot meticulously analyzes the titles and descriptions of your issues, automatically applying relevant labels to categorize and prioritize them. <br><br>This intelligent tool significantly enhances productivity for maintainers and contributors by ensuring that issues are accurately labeled and effortlessly navigable.",
+          "maxWidth": "800px"    
+        }
+      ],
+      [
+        {
+          "type": "text-left",
+          "header": "Deployment on GitHub'",
+          "text": "The Issue Labeling Bot is seamlessly integrated with GitHub using webhooks, ensuring real-time responsiveness to new issues. Once deployed, the bot monitors your repositories and triggers the labeling process automatically upon issue creation or update. <br><br>This integration guarantees that your issues are always up-to-date with the correct labels, facilitating efficient management and resolution."
+        },
+        {
+            "type": "text-right",
+            "header": "How It Works",
+            "text": "<ul><li>Real-Time Analysis: Upon issue creation or modification, the bot activates via GitHub webhooks, instantly analyzing the issue's content using NLP.</li><br><li>Automatic Labeling: Based on its analysis, the bot applies the most relevant labels, ensuring that every issue is appropriately categorized.</li><br><li>Continuous Improvement: As you manually correct any mislabeling, the bot learns and improves its future labeling accuracy, becoming increasingly reliable over time.</li></ul>"
+          }
+        
+      ],
+
+      [
+        {
+          "type": "text-full",
+          "header": "Key Features",
+          "text": "<ul><li>Automated Labeling: Automatically assigns labels to new issues based on predefined criteria and sophisticated machine learning models, streamlining your workflow and saving valuable time.</li><br><li>Customizable Labels: Supports custom label sets tailored to the unique needs of your repository, providing flexibility and adaptability for diverse projects.</li><br><li>Machine Learning-Powered: Utilizes cutting-edge NLP and machine learning algorithms to comprehend the context and content of issues, ensuring precise and contextually appropriate labeling.</li><br><li>Multi-Repository Support: Configurable to work seamlessly across multiple repositories within the same organization or user account, offering a unified solution for complex projects.</li><br><li>Continuous Learning: Enhances labeling accuracy over time by learning from manually corrected labels, continuously refining its models to adapt to your repository’s evolving needs.</li></ul>"
+        }
+      ]
+
+    ]
+  }

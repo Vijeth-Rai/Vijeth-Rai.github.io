@@ -1,0 +1,63 @@
+{
+    "title": "Microsoft Malware Detection Using Machine Learning",
+    "summary": "In our digital era, the increasing sophistication of cyber threats, particularly malware, is a significant concern for individuals, companies, and governments. Malware, or malicious software, is any program intended to disrupt, damage, or gain unauthorized access to computer systems. Traditional antivirus methods struggle to keep pace with the rapid evolution of malware techniques. However, the rise of machine learning (ML) offers a beacon of hope, providing new tools to enhance our cybersecurity arsenal. This blog explores the intricate process of using machine learning for malware detection, from raw data extraction to model training and evaluation.",
+    "projectImage": "image2",
+    "githubLink": "https://github.com/Vijeth-Rai/Data-Science-Portfolio",
+    "contentSections": [
+      
+      [
+        {
+          "type": "text-full",
+          "header": "The Nature of Malware:",
+          "text": "Malware comes in various forms, such as viruses, worms, spyware, and ransomware, each designed with specific harmful intents. The complexity of these threats requires robust detection systems that not only understand current malware features but can also adapt to detect new, previously unseen types."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Challenges in Traditional Detection Methods:",
+          "text": "Traditional malware detection often relies on signature-based methods, which compare program codes to databases of known threats. However, this method falls short against polymorphic and metamorphic malware, which alter their code to evade detection."
+        }
+      ],
+      [
+        {
+          "type": "text-left",
+          "header": "About the dataset",
+          "text": "The dataset is taken from The dataset is taken from Microsoft Malware Challenge. This dataset contains .byte and .asm files which are most commonly used in malware detection tasks. . This dataset contains .byte and .asm files which are most commonly used in malware detection tasks. The .byte files contain binary data in hexadecimal format and the .asm files contain the disassembled code of the binary files. There are 10868 .byte and .asm files in the dataset. The task is to classify whether the file classifies as a malware or not."
+        },
+        {
+          "type": "text-right",
+          "header": "Motivation",
+          "text": "The motivation behind this project lies in the need to protect users from the ever-evolving landscape of cyber threats and ensure the safety and integrity of computer systems. By creating a reliable and efficient malware detection system using machine learning, we can stay one step ahead of cybercriminals and safeguard our digital lives."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Preprocess",
+          "text": "<ul><li>Uni-grams and Bi-grams: The .byte and .asm files have been transformed into uni-grams and bi-grams, capturing frequency and co-occurrence patterns in the data, providing critical features for machine learning models.</li><br><li>Binary to Pixel Conversion: The binary representations of the .asm files have been converted into pixel values, allowing the analysis of intensity patterns that may indicate the presence of malware.</li><br><li>Feature Count: There are 26 and 676 features for .asm uni-grams and bi-grams, respectively. Similarly, for .byte files, there are 257 and 66,049 features for uni-grams and bi-grams, respectively.</li><br><li>Pixel Array: The pixel array is a 1D flattened array consisting of 800 pixel values, which is used for analyzing potential malware indicators.</li></ul>"
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Model and Results",
+          "text": ""
+        }
+      ],
+      [
+        {
+          "type": "image-full",
+          "image": "mal1"
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "header": "Conclusion",
+          "text": "One other conclusion that can be drawn from the table is that the model consisting of ASM Bi, ASM Uni, Bytes Bi, and ASM Pixel features achieved a perfect accuracy of 100% on both training and testing data when using the Random Forest model. This suggests that the combination of these features may be particularly effective in distinguishing between malware and benign files. However, it is important to note that the malware detection model might go out of date if it is not regularly trained on latest data."
+        }
+      ]
+
+    ]
+  }

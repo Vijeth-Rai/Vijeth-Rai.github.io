@@ -1,0 +1,53 @@
+{
+  "title": "Employee Productivity Analyzer",
+  "summary": "This project serves as a comprehensive solution for team leaders and project managers aiming to streamline the monitoring and management of developer performance. By harnessing the capabilities of Jira and Time Doctor APIs, this application facilitates the easy tracking of employee time and task metrics.",
+  "projectImage": "prod1.png",
+  "githubLink": "https://github.com/Vijeth-Rai/Employee-Productivity-Analyzer",
+  "contentSections": [
+    [
+      {
+      "type": "text-full",
+      "header": "Unlock Instant Insights",
+      "text": "The core advantage of the Metrics Calculator lies in its ability to provide instant, detailed performance data across any specified time interval. By eliminating the need for manual tracking, the application ensures that team leaders and project managers can focus on strategic decisions rather than data gathering."
+    }
+    ],
+    [
+      {
+      "type": "text-left",
+      "header": "Key Benefits of the Metrics Calculator",
+      "text": "<ul><li><strong>Instant Data Access:</strong> Directly fetches and displays metrics related to task completion, time efficiency, and QA pass rates tailored to individual team members and specific time frames.</li><br><li><strong>Enhanced Decision-Making:</strong> Empowers leaders with a clear view of both individual and team performances, facilitating informed, data-driven decisions.</li><br><li><strong>Optimized Status Calls:</strong> Streamlines status meetings with timely and relevant insights, focusing discussions on key progress points and areas of concern.</li><br><li><strong>Proactive Management:</strong> Early detection of potential bottlenecks and performance dips, allowing timely interventions to keep projects on track.</li><br><li><strong>Seamless Integration:</strong> Easy setup with existing Jira and Time Doctor accounts, integrating effortlessly into the current workflow without the need for additional tools.</li></ul>"
+    },
+    {
+      "type": "text-right",
+      "header": "Technical Overview",
+      "text": "<ul><li><strong>Built with FastAPI and Streamlit:</strong> The Metrics Calculator offers flexibility in deployment, functioning both as a user-friendly web application and a robust REST API. This dual capability ensures that it can cater to varying user preferences and technical environments.</li><br><li><strong>Practical Application:</strong> <ul><li>Web Interface: Through Streamlit, users interact with a graphical interface where they can input data such as estimated times and specific metrics to be calculated.</li><br><li>REST API: FastAPI provides a backend structure where metrics are calculated in response to JSON requests, suitable for integration into existing systems.</li></ul></li></ul>"
+    }
+    ],
+    [
+      {
+      "type": "text-full",
+      "header": "User Interaction",
+      "text": "Users can easily configure the application by entering their Jira and Time Doctor credentials, setting up their environment variables, and starting the application to begin tracking and analyzing metrics."
+    }
+    ],
+    [
+      {
+      "type": "text-left",
+      "header": "Streamlined Setup",
+      "text": "Setting up the Metrics Calculator involves cloning the repository, setting up a virtual environment, installing dependencies, and configuring necessary environment variables through a .env file."
+    },
+    {
+      "type": "text-right",
+      "header": "Compliance and Ethics",
+      "text": "It is vital that users ensure their scraping activities comply with the website’s terms of service and legal regulations regarding data extraction, making this tool not only powerful but also ethical in its application.<br><br>"
+    }
+    ],
+    [
+      {
+        "type": "text-full",
+        "header": "Conclusion",
+        "text": "This project is not just a tool but a transformative approach to managing team productivity, making complex data interactions simple and insightful. Whether managing a small team or a large-scale project, the Metrics Calculator is an invaluable asset for any project leader's toolkit."
+      }
+    ]
+  ]
+}

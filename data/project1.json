@@ -1,0 +1,147 @@
+{
+  "title": "Master's Dissertation: When Words Are Not Enough - Multimodal Sarcasm Detection",
+  "summary": "Abstract— The future of AI shows promising possibilities in field of communication, with a variety of applications in therapy, retail, customer service and more. Despite the significant progress in AI, there is a lack of research that explores the extent to which AI can be used to distinguish passive aggression or sarcasm using multimodal inputs. Thus, the aim of this study is to investigate the potential of AI in recognizing subtle forms of human expressions in conversations. This paper introduces an innovative framework that combines early fusion and late fusion with ensemble methods. The study demonstrates a 11.2% improvement in performance over existing research in this domain. Furthermore, two experimental approaches are setup to gain insights on the nature of sarcasm – whether sarcasm is speakerdependent or not.",
+  "projectImage": "image1",
+  "githubLink": "https://github.com/Vijeth-Rai/Multimodal-Sarcasm-Detection",
+  "contentSections": [
+    [
+      {
+        "type": "text-left",
+        "header": "Origin",
+        "text": "Sarcasm is a nuanced and multi-layered form of communication that poses significant challenges for automated systems. Current models often struggle with its complexity, since sarcasm frequently depends on more than just the words spoken. It incorporates auditory cues like tone and intonation, even visual signals such as facial expressions. This makes it a genuinely multi-modal issue that demands an interdisciplinary solution, bridging the gap between textual, audio, and visual data."
+      },
+      {
+        "type": "text-right",
+        "header": "Gap in Research:",
+        "text": "Recognizing this gap, my research adopted a multidimensional approach, focusing on integrating data across these three critical domains—text, audio, and visual—to construct a more holistic sarcasm detection model. The breakthrough in my work lies in its ability to synergize these multiple forms of data, creating a more accurate and robust system for understanding the intricacies of sarcasm in human communication."
+      }
+    ],
+    [
+      {
+        "type": "text-full",
+        "header": "Example Data",
+        "text": ""
+      }
+    ],
+    [
+      {
+        "type": "image-full",
+        "image": "diss"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "What's New:",
+        "text": "A significant gap in existing literature involves the limited exploration of audio features for sarcasm detection. This research bridges this gap by employing the VGGish transfer learning model to generate high-quality.<br><br>Facial expressions were never a focus on previous studies. Logically, the expressions in a person's face largely contributes to the outcome of the speech, whether sarcastic or not. Facial features were extracted using state-of-the-art models trained on Facial Expression Recognition (FER) dataset to generate facial embeddings.<br><br>New Architecture called MFEF: Multimodal Fusion Ensemble Framework: This is the proposed architecture which leverages the power of ensemble models on early fusion and late fusion. This enables to model to determine the outcome based on independent model results and self-obtained informations."
+      },
+      {
+        "type": "text-right",
+        "header": "Extracting Features:",
+        "text": "Text Data: We employ a case-sensitive BERT model, proven effective in detecting sarcasm by understanding the contextual and speaker-specific nuances in conversational data.<br><br>Audio Data: Focusing on the audio of final utterances where sarcasm typically peaks, we extract features such as Mel Frequency Cepstral Coefficients (MFCCs) and intensity levels, among others. These are combined with advanced embeddings obtained from the VGGish model, enhancing our ability to discern subtle acoustic cues indicative of sarcasm.<br><br>Video Data: We analyze videos focusing specifically on the moments sarcasm is expressed. Using the Multi-Task Cascaded Convolutional Networks (MTCNN) for initial detection, we then apply VGG-Face for Facial Expression Recognition (VGG-FER) to capture facial features. "
+      }
+    ],
+    [
+      {
+        "type": "image-full",
+        "image": "diss2"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "A. Textual Model",
+        "text": "For speaker-dependent textual model, embeddings are generated using a case-sensitive BERT model. These embeddings represent Speaker information (S), Contextual Text (𝑇𝑐) and Utterance Text (𝑇𝑢). These BERT embeddings are then concatenated with speaker names and to serve as input for textual model.<br><br>For speaker-independent setup, the speaker information is omitted from the inputs. The speakerindependent model for textual data also does not contain speaker information."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>{w1 , w2 , w3 … w768} = BERT(S + Tc + Tu)<br><br>Tm = CAT({w1 , w2 … w768},{S1 , S2 … S27})<br><br><br><br>{w1 , w2 , w3 … w768} = BERT(Tu + Tc)<br><br>Tm = {w1 , w2 , w3 … w768}"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "B. Audio Model",
+        "text": "VGGish, developed by google is employed for generating audio embeddings resulting in a 128- dimensional audio vector for each audio file. These embeddings are then concatenated with speaker names to form the input for the audio model. This concatenation allows for the capture of speakerspecific patterns.<br><br>For speaker-independent setup, the speaker information is not included."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>{a1 , a2 , a3 … a128} = VGGish(Au )<br><br> Am = CONCAT({a1 , a2 … a128},{S1 , S2 … S27})<br><br>Am = {a1 , a2 … a128}"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "C. Visual Model",
+        "text": "The image consists of the face of the speaker. VGG model trained on Facial Expression Recognition (FER) dataset is used to generate embeddings. These embeddings are then concatenated with speaker names. This allows the model to understand speaker specific facial expressions.<br><br>For the speaker-independent setup, embeddings are generated for all faces in the video and averaged since the facial expressions are generally similar across participants."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>{i1 , i2 , i3 … i256} = VGG FER(I𝑢)<br><br>Im = CONCAT({i1 , i2 … i256},{S1 , S2 … S27})<br><br>{i1 , i2 , i3 … i256} = VGG FER(Iu + Ic)<br><br>Im = {i1 , i2 , i3 … i256}"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "D. Early Fusion Model",
+        "text": "The embeddings generated from the Textual, Audio, Visual models are concatenated and used as the input for the Fusion model. The Early Fusion model structure remains the same for both experimental setups."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>Fearly = CONCAT({w1:768},{a1:128},{i1:256})"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "E. Late Fusion Model",
+        "text": "The predictions generated by the Textual, Audio, and Visual models are concatenated and used as the input for a logistic regression model. The Late Fusion model structure also remains the same for both experimental setups."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>Flate = CONCAT(Tm, Am, Im)"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "F. Ensemble Model",
+        "text": "The early fusion and late fusion techniques are similar to ensemble techniques, the only difference being that the inputs to these models arise from different modalities of data. The ensemble model averages the probability outputs from the Early and Late Fusion models. The threshold for classification is tuned for optimal performance. The structure of the ensemble model remains the same across both experimental setups."
+      },
+      {
+        "type": "text-right",
+        "header": " ",
+        "text": "<br><br>E = (Fearly + Flate) / 2"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "Findings:",
+        "text": "Comparing the results of the two experimental setups, it is evident that even though the speaker-dependent setup has an overall increase of 3% in performance. While this might initially seem to suggest that speaker information is important, the small magnitude of the difference argues against this interpretation. Rather, the data implies that sarcasm is largely a speaker-independent phenomenon."
+      },
+      {
+        "type": "image-right",
+        "image": "<br><br>diss3"
+      }
+    ],
+    [
+      {
+        "type": "text-left",
+        "header": "Results:",
+        "text": "The results of my research outperformed previous studies by 11.2% across multiple metrics. These improvements have vast and far-reaching real-world implications. This achievement is not merely an academic exercise but a tangible contribution that could revolutionize a variety of automated systems relying on effective human-computer interaction. From enhancing sentiment analysis algorithms on social media platforms to improving the reliability of customer service AI robots, and even recognizing the subtlest forms of passive aggression in therapeutic settings, the applications are limitless. The added precision in detecting sarcasm enriches communication, minimizes misunderstandings, and thereby significantly elevates the overall user experience."
+      },
+      {
+        "type": "image-right",
+        "image": "<br><br>diss4"
+      }
+    ]
+    
+
+  ]
+}

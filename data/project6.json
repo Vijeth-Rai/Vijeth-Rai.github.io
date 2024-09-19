@@ -1,0 +1,49 @@
+{
+  "title": "GPT-2 Implementation",
+  "summary": "This project demonstrates a custom implementation of the GPT-2 model from scratch, covering the configuration setup, model architecture, training, and optimization techniques.",
+  "projectImage": "gpt1.png",
+  "githubLink": "https://github.com/Vijeth-Rai/GPT-2-From-Scratch",
+  "contentSections": [
+
+  [
+    {
+      "type": "text-left",
+      "header": "Configuration Class",
+      "text": "We start by defining a configuration class using a dataclass, which will hold all the necessary parameters for the GPT-2 model.<br><br><pre><code>@dataclass<br>class GPTConfig:<br>    block_size: int = 1024 # max sequence length<br>    vocab_size: int = 50257 # number of tokens: 50,000 BPE merges + 256 bytes tokens + 1 special token<br>    n_layer: int = 12 # number of layers<br>    n_head: int = 12 # number of heads<br>    n_embd: int = 768 # embedding dimension </code></pre>"
+      
+      
+    },
+    {
+      "type": "text-right",
+      "header": "GPT Model Components",
+      "text": "The following sections describe the main components of the GPT model, including the transformer modules, embedding layers, and language modeling head."
+    }
+  ],
+  [
+       
+    {
+      "type": "text-full",
+      "header": "Self-Attention Mechanism",
+      "text": "In this section, we explain the self-attention mechanism and the forward pass within the Block class of the GPT-2 model. We discuss pre-norm layer normalization and the roles of self-attention and MLP layers."
+    }
+  ],
+  [
+    {
+      "type": "image-full",
+      "image": "attention2"
+    }
+  ],
+  [
+    {
+      "type": "text-right",
+      "header": "Loading Model Weights",
+      "text": "In this section, we explain how to load pre-trained GPT-2 model weights from Hugging Face's transformers library into our custom implementation, ensuring compatibility with the state dictionaries."
+    },
+    {
+      "type": "text-left",
+      "header": "Verifying by Generating Text",
+      "text": "Finally, the implementation was verified by generating text from the custom model. The following shows an example of generated text from the model using a simple prompt."
+    }
+  ]
+  ]
+}

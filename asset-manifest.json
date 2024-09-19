@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.295f823c.css",
+    "main.js": "/static/js/main.da33d34e.js",
+    "static/js/453.fac243e8.chunk.js": "/static/js/453.fac243e8.chunk.js",
+    "static/media/blur3.png": "/static/media/blur3.2f96fbe63f4f04bdf122.png",
+    "static/media/attention2.png": "/static/media/attention2.26e8aa01988fafed2d74.png",
+    "static/media/blur1.png": "/static/media/blur1.2343804ebc92a98c5d9a.png",
+    "static/media/amazon.png": "/static/media/amazon.ccb2517235c4076dd7f8.png",
+    "static/media/scraper.png": "/static/media/scraper.deb216a6e54b04a8d445.png",
+    "static/media/prod1.png": "/static/media/prod1.7931ba8a3f14927d66f9.png",
+    "static/media/rag1.png": "/static/media/rag1.f848b8b9a7cc85c86031.png",
+    "static/media/genai1.png": "/static/media/genai1.53b56cf38e1d8a62f996.png",
+    "static/media/amazon.webp": "/static/media/amazon.133d1b1dccf4496af1eb.webp",
+    "static/media/gpt1.png": "/static/media/gpt1.23c560c595b213a72645.png",
+    "static/media/attention.png": "/static/media/attention.7cd45518d8931b71d33d.png",
+    "static/media/image-2.png": "/static/media/image-2.11667cad1be590bfb256.png",
+    "static/media/blur2.png": "/static/media/blur2.ca39bb7f1d17e4be5b21.png",
+    "static/media/gpt2.webp": "/static/media/gpt2.adc9f4349c14a09a2ea0.webp",
+    "static/media/mal1.png": "/static/media/mal1.96b37ebd1b55cd5de8d3.png",
+    "static/media/image5.avif": "/static/media/image5.51a9b249a3552738cfaf.avif",
+    "static/media/image3.avif": "/static/media/image3.187402811efc95b85991.avif",
+    "static/media/diss.avif": "/static/media/diss.f0ad3fb81186c09f34ce.avif",
+    "static/media/image1.avif": "/static/media/image1.53e03381de7d3ee6388e.avif",
+    "static/media/image2.avif": "/static/media/image2.9339d194fb7a75305211.avif",
+    "static/media/diss2.avif": "/static/media/diss2.88c22b70d2363e2646c4.avif",
+    "static/media/diss4.avif": "/static/media/diss4.60d44d4079faee1508c6.avif",
+    "static/media/image4.avif": "/static/media/image4.80b38802eb9c56557003.avif",
+    "static/media/diss3.avif": "/static/media/diss3.42c64c04bd763d426203.avif",
+    "index.html": "/index.html",
+    "main.295f823c.css.map": "/static/css/main.295f823c.css.map",
+    "main.da33d34e.js.map": "/static/js/main.da33d34e.js.map",
+    "453.fac243e8.chunk.js.map": "/static/js/453.fac243e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.295f823c.css",
+    "static/js/main.da33d34e.js"
+  ]
+}
