@@ -1,11 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './Project-Format.css';  // We'll update this CSS file
 
 // Add this at the top of your file, outside of the component
 const imageContext = require.context('./Project-images', false, /\.(avif|png|jpe?g|gif)$/);
 console.log('Available images:', imageContext.keys());
 
-function ProjectDisplay({ title, summary, projectImage, contentSections }) {
+function ProjectDisplay({ title, summary, projectImage, contentSections, githubLink }) {
   console.log('ProjectDisplay props:', { title, summary, projectImage, contentSections });
 
   const getImage = (imageName) => {
@@ -33,7 +36,36 @@ function ProjectDisplay({ title, summary, projectImage, contentSections }) {
     const { type, text, image, header } = section;
     
     const createMarkup = (htmlContent) => {
-      return { __html: htmlContent };
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+      const codeBlocks = doc.querySelectorAll('pre code');
+      
+      codeBlocks.forEach((codeBlock) => {
+        const language = codeBlock.className.replace('language-', '');
+        const code = codeBlock.textContent;
+        
+        const highlightedCode = (
+          <SyntaxHighlighter 
+            language={language || 'text'} 
+            style={vscDarkPlus}
+            customStyle={{
+              margin: 0,
+              padding: '1em',
+              borderRadius: '5px',
+              maxWidth: '100%',
+              overflowX: 'auto'
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
+        );
+        
+        const highlightedElement = document.createElement('div');
+        ReactDOM.render(highlightedCode, highlightedElement);
+        codeBlock.parentNode.replaceWith(highlightedElement);
+      });
+
+      return { __html: doc.body.innerHTML };
     };
 
     const processImageField = (imageField) => {
@@ -48,7 +80,7 @@ function ProjectDisplay({ title, summary, projectImage, contentSections }) {
       case 'text-right':
         return (
           <div key={index} className={`container ${type}`}>
-            {header && <h3>{header}</h3>}
+            {header && <h2>{header}</h2>}
             <p dangerouslySetInnerHTML={createMarkup(text)} />
           </div>
         );
@@ -69,12 +101,33 @@ function ProjectDisplay({ title, summary, projectImage, contentSections }) {
           </div>
         );
       case 'text-full':
-        return (
-          <div key={index} className={`container ${type}`}>
-            {header && <h3>{header}</h3>}
-            <p dangerouslySetInnerHTML={createMarkup(text)} />
-          </div>
-        );
+        if (text.includes('youtube.com')) {
+          // Extract video ID from YouTube URL
+          const videoId = text.split('v=')[1].split('&')[0];
+          return (
+            <div key={index} className={`container ${type}`}>
+              {header && <h2>{header}</h2>}
+              <div className="video-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div key={index} className={`container ${type}`}>
+              {header && <h2>{header}</h2>}
+              <p dangerouslySetInnerHTML={createMarkup(text)} />
+            </div>
+          );
+        }
       case 'image-full':
         const { imageName: fullImageName, brCount: fullBrCount } = processImageField(image);
         const fullContentImageSrc = getImage(fullImageName);
@@ -113,9 +166,13 @@ function ProjectDisplay({ title, summary, projectImage, contentSections }) {
             <p>Image not available: {projectImage}</p>
           )}
           <div className="project-title-summary">
-            <h2 className="project-title">{title}</h2>
+            <h1 className="project-title">{title}</h1>
             <p>{summary}</p>
-            <a href="https://github.com/your-username/your-repo" class="github-button">GitHub</a>
+            {githubLink && (
+              <a href={githubLink} className="github-button" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            )}
           </div>
         </div>
         

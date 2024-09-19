@@ -2,6 +2,7 @@
   "title": "Master's Dissertation: When Words Are Not Enough - Multimodal Sarcasm Detection",
   "summary": "Abstract— The future of AI shows promising possibilities in field of communication, with a variety of applications in therapy, retail, customer service and more. Despite the significant progress in AI, there is a lack of research that explores the extent to which AI can be used to distinguish passive aggression or sarcasm using multimodal inputs. Thus, the aim of this study is to investigate the potential of AI in recognizing subtle forms of human expressions in conversations. This paper introduces an innovative framework that combines early fusion and late fusion with ensemble methods. The study demonstrates a 11.2% improvement in performance over existing research in this domain. Furthermore, two experimental approaches are setup to gain insights on the nature of sarcasm – whether sarcasm is speakerdependent or not.",
   "projectImage": "image1",
+  "githubLink": "https://github.com/Vijeth-Rai/Multimodal-Sarcasm-Detection",
   "contentSections": [
     [
       {

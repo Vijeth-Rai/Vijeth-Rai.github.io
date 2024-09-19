@@ -2,6 +2,7 @@
     "title": "Microsoft Malware Detection Using Machine Learning",
     "summary": "In our digital era, the increasing sophistication of cyber threats, particularly malware, is a significant concern for individuals, companies, and governments. Malware, or malicious software, is any program intended to disrupt, damage, or gain unauthorized access to computer systems. Traditional antivirus methods struggle to keep pace with the rapid evolution of malware techniques. However, the rise of machine learning (ML) offers a beacon of hope, providing new tools to enhance our cybersecurity arsenal. This blog explores the intricate process of using machine learning for malware detection, from raw data extraction to model training and evaluation.",
     "projectImage": "image2",
+    "githubLink": "https://github.com/Vijeth-Rai/Data-Science-Portfolio",
     "contentSections": [
       
       [
@@ -34,20 +35,8 @@
         {
           "type": "text-full",
           "header": "Preprocess",
-          "text": ""
+          "text": "<ul><li>Uni-grams and Bi-grams: The .byte and .asm files have been transformed into uni-grams and bi-grams, capturing frequency and co-occurrence patterns in the data, providing critical features for machine learning models.</li><br><li>Binary to Pixel Conversion: The binary representations of the .asm files have been converted into pixel values, allowing the analysis of intensity patterns that may indicate the presence of malware.</li><br><li>Feature Count: There are 26 and 676 features for .asm uni-grams and bi-grams, respectively. Similarly, for .byte files, there are 257 and 66,049 features for uni-grams and bi-grams, respectively.</li><br><li>Pixel Array: The pixel array is a 1D flattened array consisting of 800 pixel values, which is used for analyzing potential malware indicators.</li></ul>"
         }
-      ],
-      [
-        {
-          "type": "text-left",
-          "header": "",
-          "text": "The .byte and .asm files have been transformed into uni-grams and bi-grams, capturing frequency and co-occurrence patterns in the data. Moreover, the binary representations of the .asm files have been converted into pixel values to analyze intensity patterns potentially indicative of malware presence. These feature representations facilitate improved understanding and classification by machine learning algorithms, ultimately enhancing the accuracy of malware detection."
-        },
-        {
-            "type": "text-right",
-            "header": "",
-            "text": "There are 26 and 676 features of .asm uni grams and bi grams respectively. Similarly for .byte files, there are 257 and 66049 features for unigrams and bigrams respectively. The pixel array is 1D - flattened array of 800 pixel values."
-          }
       ],
       [
         {

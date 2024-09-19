@@ -5,6 +5,13 @@ import projectImage2 from './Project-images/image2.avif';
 import projectImage3 from './Project-images/image3.avif';
 import projectImage4 from './Project-images/image4.avif';
 import projectImage5 from './Project-images/image5.avif';
+import projectImage6 from './Project-images/gpt2.webp';
+import projectImage7 from './Project-images/amazon.webp';
+import projectImage8 from './Project-images/rag1.png';
+import projectImage9 from './Project-images/genai1.png';
+import projectImage10 from './Project-images/scraper.png';
+import projectImage11 from './Project-images/prod1.png';
+
 import ParticleBackground from './ParticleBackground';
 import { Link } from 'react-router-dom';
 
@@ -19,6 +26,48 @@ const Projects = () => {
       image: projectImage1,
       ctaText: "Read More",
       dataFile: "project1.json"
+    },
+    {
+      title: "GenAI RPG Game - LangGraph",
+      description: "An RPG Game that has no limits to creativity with access to Multiple Agents.",
+      image: projectImage9,
+      ctaText: "Read More",
+      dataFile: "project9.json"
+    },
+    {
+      title: "Amazon AI Agent",
+      description: "A Shopping Assistant Chatbot Agent for Amazon",
+      image: projectImage7,
+      ctaText: "Read More",
+      dataFile: "project7.json"
+    },
+    {
+      title: "Employee Productivity Analyzer",
+      description: "Easing your status calls with one click",
+      image: projectImage11,
+      ctaText: "Read More",
+      dataFile: "project11.json"
+    },
+    {
+      title: "Multi-thread Efficient Scraping",
+      description: "Scraper Scripts for over 50+ websites",
+      image: projectImage10,
+      ctaText: "Read More",
+      dataFile: "project10.json"
+    },
+    {
+      title: "Infinite RAG",
+      description: "Document Chatbot with Access to All the Contextual Data",
+      image: projectImage8,
+      ctaText: "Read More",
+      dataFile: "project8.json"
+    },
+    {
+      title: "GPT 2 From Scratch",
+      description: "GPT Architecture from Scratch",
+      image: projectImage6,
+      ctaText: "Read More",
+      dataFile: "project6.json"
     },
     {
       title: "Microsoft Malware Detection",
@@ -48,6 +97,8 @@ const Projects = () => {
       ctaText: "Read More",
       dataFile: "project5.json"
     },
+    
+    
   ];
   
   const getCardStyle = (index) => {
@@ -59,11 +110,11 @@ const Projects = () => {
     if (diff === 0) {
       transform = 'translateX(0) scale(1)';
       zIndex = 3;
-    } else if (diff === 1 || diff === -4) {
+    } else if (diff === 1 || diff === -10) {
       transform = 'translateX(50%) scale(0.5) rotateY(-100deg)';
       zIndex = 2;
       opacity = 0.3;
-    } else if (diff === -1 || diff === 4) {
+    } else if (diff === -1 || diff === 10) {
       transform = 'translateX(-50%) scale(0.5) rotateY(100deg)';
       zIndex = 2;
       opacity = 0.3;

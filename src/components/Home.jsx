@@ -45,8 +45,8 @@ const Home = () => {
             <button className="btn secondary">Contact Me</button>
           </div>
           <div className="social-links">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Vijeth-Rai" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/rai-vijeth" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       ) : (

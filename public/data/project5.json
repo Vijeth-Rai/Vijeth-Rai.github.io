@@ -2,6 +2,7 @@
     "title": "Auto Faceblur",
     "summary": "Automatically blur faces in your posts, saving you the time and effort of manually blurring the faces of friends who haven't consented to being in your social media posts<br><br>Introducing Auto FaceBlur, the ultimate solution for safeguarding privacy in your social media posts. On average, manually blurring faces in photos can take 15-20 minutes, but with Auto FaceBlur, you can instantly blur faces, ensuring you respect the privacy of friends who haven't consented to being featured in your Instagram or Facebook pictures. Save time and avoid the hassle with our automatic face-blurring tool, making it easier than ever to share your memories while respecting everyone's privacy.",
     "projectImage": "image5",
+    "githubLink": "https://github.com/Vijeth-Rai/Blur-Cam",
     "contentSections": [
       
       [
@@ -110,6 +111,12 @@
           "type": "text-full",
           "header": "Extending the Model to Video Inputs",
           "text": "After modifying the code a little, it is possible to apply the above model on video inputs for real time face blurring. This could be useful for streaming platforms and news channels to protect privacy of individuals."
+        }
+      ],
+      [
+        {
+          "type": "text-full",
+          "text": "https://www.youtube.com/watch?v=hweFhyku2jk"
         }
       ]
   
